@@ -1,14 +1,18 @@
 {
-  "name": "react-native-pulse-loader",
-  "version": "1.0.3",
+  "name": "@yz1311/react-native-pulse-loader",
+  "version": "1.0.4-beta1",
   "description": "tinder-like loader for your react native app",
   "main": "PulseLoader.js",
+  "types": "types/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/mastermoo/react-native-pulse-loader.git"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "keywords": [
     "react-native",
@@ -17,6 +21,10 @@
     "pulse-loader",
     "location-loader"
   ],
+  "devDependencies": {
+    "@types/react": "17.0.3",
+    "@types/react-native": "0.64.0"
+  },
   "peerDependencies": {
     "react-native": "^0.27",
     "prop-types": "15.6.1"

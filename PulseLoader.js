@@ -1,13 +1,28 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { View, Image, TouchableOpacity, Animated, Easing } from 'react-native';
 import Pulse from './Pulse';
 
 
 export default class LocationPulseLoader extends React.Component {
+	static defaultProps = {
+		interval: 2000,
+		size: 100,
+		pulseMaxSize: 250,
+		avatar: undefined,
+		avatarBackgroundColor: 'white',
+		pressInValue: 0.8,
+		pressDuration: 150,
+		pressInEasing: Easing.in,
+		pressOutEasing: Easing.in,
+		borderColor: '#D8335B',
+		backgroundColor: '#ED225B55',
+		getStyle: undefined,
+		isInteraction: false
+	};
+
 	constructor(props) {
 		super(props);
-	
+
 		this.state = {
 			circles: []
 		};
@@ -36,6 +51,7 @@ export default class LocationPulseLoader extends React.Component {
 			toValue: this.props.pressInValue,
 			duration: this.props.pressDuration,
 			easing: this.props.pressInEasing,
+			isInteraction: this.props.isInteraction
 		}).start(() => clearInterval(this.setInterval));
 	}
 
@@ -44,6 +60,7 @@ export default class LocationPulseLoader extends React.Component {
 			toValue: 1,
 			duration: this.props.pressDuration,
 			easing: this.props.pressOutEasing,
+			isInteraction: this.props.isInteraction
 		}).start(this.setCircleInterval.bind(this));
 	}
 
@@ -75,7 +92,7 @@ export default class LocationPulseLoader extends React.Component {
 					}}
 				>
 					<Image
-						source={{ uri: avatar }}
+						source={avatar}
 						style={{
 							width: size,
 							height: size,
@@ -86,34 +103,6 @@ export default class LocationPulseLoader extends React.Component {
 				</TouchableOpacity>
 			</View>
 		);
-	}	
+	}
 }
-
-LocationPulseLoader.propTypes = {
-  interval: PropTypes.number,
-  size: PropTypes.number,
-  pulseMaxSize: PropTypes.number,
-  avatar: PropTypes.string.isRequired,
-  avatarBackgroundColor: PropTypes.string,
-  pressInValue: PropTypes.number,
-  pressDuration: PropTypes.number,
-  borderColor: PropTypes.string,
-  backgroundColor: PropTypes.string,
-  getStyle: PropTypes.func,
-};
-
-LocationPulseLoader.defaultProps = {
-  interval: 2000,
-  size: 100,
-  pulseMaxSize: 250,
-  avatar: undefined,
-  avatarBackgroundColor: 'white',
-  pressInValue: 0.8,
-  pressDuration: 150,
-  pressInEasing: Easing.in,
-  pressOutEasing: Easing.in,
-  borderColor: '#D8335B',
-  backgroundColor: '#ED225B55',
-  getStyle: undefined,
-};
 
