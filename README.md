@@ -7,14 +7,14 @@
 
 ### Installation
 ```bash
-npm i react-native-pulse-loader --save
+npm i @yz1311/react-native-pulse-loader --save
 ```
 
 ### Example
 
 ```js
 import React from 'react';
-import PulseLoader from 'react-native-pulse-loader';
+import PulseLoader from '@yz1311/react-native-pulse-loader';
 
 const App = ({}) => (
   <PulseLoader

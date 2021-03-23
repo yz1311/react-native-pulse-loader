@@ -1,7 +1,8 @@
 import { Component } from "react";
-import {Easing, ImageSourcePropType} from "react-native";
+import {Easing, ImageSourcePropType, StyleProp, ViewStyle} from "react-native";
 
 interface IPulseLoaderProps {
+    style?: StyleProp<ViewStyle>;
     /**
      *
      * default: 2000
@@ -19,6 +20,7 @@ interface IPulseLoaderProps {
     pulseMaxSize?: number;
 
     avatar: ImageSourcePropType;
+    onPress?: ()=>void;
     /**
      *
      * default: 0.8
@@ -51,6 +53,9 @@ interface IPulseLoaderProps {
     isInteraction?: boolean;
 }
 
-export class PulseLoader extends Component<IPulseLoaderProps, any> {
+declare class PulseLoader extends Component<IPulseLoaderProps, any> {
     static defaultProps: Partial<IPulseLoaderProps>;
 }
+
+
+export default PulseLoader;

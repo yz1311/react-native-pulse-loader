@@ -15,7 +15,8 @@ export default class Pulse extends React.Component {
 			toValue: 1,
 			duration: this.props.interval,
 			easing: Easing.in,
-			isInteraction: this.props.isInteraction
+			isInteraction: this.props.isInteraction,
+			useNativeDriver: false
 		})
 		.start();
 	}

@@ -51,7 +51,8 @@ export default class LocationPulseLoader extends React.Component {
 			toValue: this.props.pressInValue,
 			duration: this.props.pressDuration,
 			easing: this.props.pressInEasing,
-			isInteraction: this.props.isInteraction
+			isInteraction: this.props.isInteraction,
+			useNativeDriver: true,
 		}).start(() => clearInterval(this.setInterval));
 	}
 
@@ -60,7 +61,8 @@ export default class LocationPulseLoader extends React.Component {
 			toValue: 1,
 			duration: this.props.pressDuration,
 			easing: this.props.pressOutEasing,
-			isInteraction: this.props.isInteraction
+			isInteraction: this.props.isInteraction,
+			useNativeDriver: true
 		}).start(this.setCircleInterval.bind(this));
 	}
 
@@ -68,12 +70,12 @@ export default class LocationPulseLoader extends React.Component {
 		const { size, avatar, avatarBackgroundColor, interval } = this.props;
 
 		return (
-			<View style={{
+			<View style={[{
 				flex: 1,
 				backgroundColor: 'transparent',
 				justifyContent: 'center',
 				alignItems: 'center',
-			}}>
+			}, this.props.style]}>
 				{this.state.circles.map((circle) => (
 					<Pulse
 						key={circle}
@@ -85,6 +87,7 @@ export default class LocationPulseLoader extends React.Component {
 					activeOpacity={1}
 					onPressIn={this.onPressIn.bind(this)}
 					onPressOut={this.onPressOut.bind(this)}
+					onPress={this.props.onPress}
 					style={{
 						transform: [{
 							scale: this.anim

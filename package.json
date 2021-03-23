@@ -1,6 +1,6 @@
 {
   "name": "@yz1311/react-native-pulse-loader",
-  "version": "1.0.4-beta1",
+  "version": "1.0.4-beta5",
   "description": "tinder-like loader for your react native app",
   "main": "PulseLoader.js",
   "types": "types/index.d.ts",
